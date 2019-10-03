@@ -1,0 +1,79 @@
+ *{
+     box-sizing: border-box;
+ }
+ body{
+     background-color: rgb(243, 242, 241);
+     color: gray
+ }
+ #container
+ {
+     width: 290px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ #conteainer2
+ {
+    width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ #h5{
+     color:rgb(32, 32, 32)
+ }
+ #box{
+    margin-top:12px;
+    position:relative;
+    float: left;
+ }
+ #closeFile{
+    margin-top:10px
+ }
+ #box2{
+     position:relative;
+     margin-left:-16px;
+     margin-top: 40px;
+     float: left;
+}
+#conteainer3{
+display:grid;
+grid-template-columns: 50% 50%
+}
+.form{
+    width: 230px;
+    margin-top: 7px
+}
+.form2{
+    width: 100px;
+}
+ .shapes {
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 20% 20% 20% 20%;
+    position: relative;
+    width: 300px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background:#10455b;
+    color: rgb(243, 242, 241);
+    font-family: "helvetica";
+    font-size: 9px;
+  }
+.btn{
+    position: relative;
+    left: 10px;
+    border:1px solid #10455b;
+    border-radius: 3px;
+    color: #10455B;
+    background: none;
+    width: 80px;
+    height: 25px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-right: 0px;
+    margin-bottom: 4px;
+}
+.btn:hover{
+    background: rgb(255, 255, 255)
+}
