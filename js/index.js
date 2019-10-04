@@ -8,13 +8,9 @@ document.getElementById("box2").onchange=function(){
     var selection = select
     var arryMode = document.getElementsByClassName("mode");
     var arryRadio = document.getElementsByName('repetition');
-    //alert(eve);
     if(selection==='wycena'){
       Array.from(arryMode).forEach(function(item){item.setAttribute("disabled","disabled")});
       Array.from(arryRadio).forEach(function(item){item.checked=false})
-    /*for(i=0; i<arr.length ; i++){
-      arr[i].setAttribute("disabled","disabled*/
-    
     }else if(selection==="druk"){
       Array.from(arryMode).forEach(function(item){item.removeAttribute("disabled")});
     }
