@@ -53,14 +53,13 @@ function resizeAply(){
 var csInterface = new CSInterface();
 //***main function triggered by fabrics buttons***
 function directory(x){
-  var newPath = "";
-  var newName = "";
-  var fabric = x;
+  var newPath = "";//for new file name
+  var newName = "";//for subfolder name
+  var fabric = x;//type of fabric
 
-  var closeFile = document.getElementById("closeFile").checked?true:false;
+  var closeFile = document.getElementById("closeFile").checked?true:false;//close the file
   var printingItem = document.getElementById("druk").checked?true:false;
   alert(printingItem)
-  //repe = document.getElementsByName("repetition");
  //file
   if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
     return alert('enter the name')
