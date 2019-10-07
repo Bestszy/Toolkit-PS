@@ -1,9 +1,12 @@
-// functions to enable and disable inputs*****TO DO-link repetition by getElementsByClassName
+/*Ideas:
+- Concept of wrap all inputs by array.from and just reference to the place in the array in functions.
+*/
+// ***functions to enable and disable inputs in html***
 document.getElementById("box").onchange=function(){
   document.getElementById("form").disabled = !this.checked};
 document.getElementById("box2").onchange=function(){
   document.getElementById("form2").disabled = !this.checked}
-
+  //function to disable and enable inputs based on button mode(druk/wycena)
   function mode (select){
     var selection = select
     var arryMode = document.getElementsByClassName("mode");
@@ -15,15 +18,14 @@ document.getElementById("box2").onchange=function(){
       Array.from(arryMode).forEach(function(item){item.removeAttribute("disabled")});
     }
     }
-
-//function to allow enter to forms only numbers***** TO DO-add exception ,, and change on . try use KeyboardEvent()
+//***function to allow enter to forms only numbers*** TO DO-add exception ,, and change on . try use KeyboardEvent()
 function isNumberKey(evt){
   var charCode = (evt.which) ? evt.which : evt.keyCode
   if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
       return false;
   return true;
 }
-//function triggered by button apply to change dimensions
+//***function triggered by button apply to change dimensions*** TO DO- see if can do it with Array from
 function resizeAply(){
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
@@ -32,7 +34,7 @@ function resizeAply(){
   alert(sizeButtonSender );
   csInterface.evalScript(sizeButtonSender + "resizeButton()",);
 }
-
+//***functions to calculate other values in inputs in resize***
   function widthF(){
     let inputWidth = document.getElementById("inputWidth").value;
     document.getElementById("inputDPI").value = (parseFloat(pixelW)/(inputWidth/2.54)).toFixed(3);
@@ -49,10 +51,7 @@ function resizeAply(){
     document.getElementById("inputWidth").value = (parseFloat(pixelW)/(inputDPI/2.54)).toFixed(2);
   }
 var csInterface = new CSInterface();
-//repe = document.getElementsByName("repetition");
-//var test = 'test asf';
-//document.getElementById("test").innerHTML=test;
-/* Make a reference to your HTML button and add a clilck handler. */
+//***main function triggered by fabrics buttons***
 function directory(x){
   var newPath = "";
   var newName = "";
@@ -90,14 +89,7 @@ if(printingItem===true){
 
 //document.getElementById("toCopy").innerHTML=path + nameee;
 
-  /*}else if(document.getElementById("box2").checked && document.getElementById("form2").value.length <= 0){
-    return alert('"enter subfolder name"')
-  }else if(document.getElementById("box2").checked && document.getElementById("form2").value.length > 0){ 
-    newPath = document.getElementById("form2").value;
-    alert(newPath)
-  };*/
   var sender = ('var fabric={fabric:"'+fabric+'",newName:"'+newName+'",newPath:"'+newPath+'",closeFile:"'+closeFile+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
-  //var sender =('var fabric ="' + fabric + '";');
   //alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
 }
