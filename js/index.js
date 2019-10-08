@@ -51,7 +51,7 @@ function resizeAply(){
     document.getElementById("inputWidth").value = (parseFloat(pixelW)/(inputDPI/2.54)).toFixed(2);
   }
 var csInterface = new CSInterface();
-//***main function triggered by fabric buttons***
+//***main function triggered by fabric buttons*** TODO:shorten sender if needed
 function directory(x){
   var fabric = x;//type of fabric
   var printingItem = document.getElementById("druk").checked?true:false;
@@ -67,7 +67,7 @@ function directory(x){
         repeti = repe[i].value;
         //alert(repeti)
       }
-    }}else{ repeti = "";
+    }}else{ repeti = "";//if needed try to delete repeat var
     alert("set repetition")
   }
   var sender = ('var fabric={fabric:"'+fabric+'",newName:"'+newName+'",newPath:"'+newPath+'",closeFile:"'+closeFile+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
@@ -112,9 +112,6 @@ function inner(){
     return cmW = infoArr[8],
     pixelW = infoArr[0],
     pixelH = infoArr[1]
-
-    
-
   })
 };
 
@@ -130,13 +127,3 @@ function copyElementText(id) {
   document.execCommand("copy");
   document.body.removeChild(elem);
 }
-
-//setTimeout(inner(),1000);
-/*var openKreton = document.getElementById("kreton");
-openKreton.addEventListener("click", openDoc, false);
-var openSatyna = document.getElementById("satyna");
-openSatyna.addEventListener("click", openDoc, false);
-/* Write a helper function to pass instructions to the ExtendScript side. */
-/*function openDoc() {
-  csInterface.evalScript("saveDocument()");
-}*/
