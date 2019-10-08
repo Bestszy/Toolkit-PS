@@ -22,23 +22,18 @@ var orginalRulerUnits = preferences.rulerUnits; // has to be in the function
 //preferences.rulerUnits = Units.PIXELS;
 preferences.rulerUnits = Units.CM;
 var doc = app.activeDocument;
-if(fabric.newName.length>0){
+var name = doc.name
+/***if statement new Name input */
+/*if(fabric.newName.length>0){
 var name = fabric.newName;
 }else{
 var name = doc.name
-};
+};*/
 var r = fabric.repetition
-//var name = doc.name
-/*if(fabric.newName.length > 0){
-  return name = fabric.newName}*/
-//var check = 'WYCENA-'+ currentDate();
-
 doc.flatten(); //flats whole file 
 doc.changeMode(ChangeMode.CMYK); //converts to cmyk 
 doc.colorProfileName='U.S. Web Coated (SWOP) v2';
-/*var nameChecked = 'assd';
-if(name.slice(0,15) === check){nameChecked = name.slice(15)
-}else{nameChecked = name}*/
+
 if(fabric.printingItem === "true"){
 doc.resizeImage(undefined, undefined, fabric.reDpi, ResampleMethod.NONE)
 var res = doc.resolution.toFixed(0)
@@ -79,9 +74,8 @@ if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON\\wyce
 } else if(fabric.fabric == 'pętelka 250') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 250\\wycena";
 } else if(fabric.fabric == 'pętelka 330') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 330\\wycena";
 }
-var f = new Folder( path + '/'+currentDate()+ '/' + fabric.newPath );
+var f = new Folder( path + '/'+currentDate()+ '/');//+ fabric.newPath ); ***needed for subfolder name
 if (!f.exists) { f.create()};
-//if(name.slice(0,15)=== check)
 var file = new File(f + '/' + fileName);
                 opts = new TiffSaveOptions();
                 opts.imageCompression = TIFFEncoding.TIFFLZW; 
@@ -95,7 +89,7 @@ alert('The file has been saved.' +
 '\n path: '+app.activeDocument.path);
 //var doc = docCopy;
 
-if(fabric.closeFile === "true"){doc.close(SaveOptions.DONOTSAVECHANGES)};
+//if(fabric.closeFile === "true"){doc.close(SaveOptions.DONOTSAVECHANGES)}; ***needed for closeFile
   }
   function getDocData(){
     preferences.rulerUnits = Units.PIXELS;

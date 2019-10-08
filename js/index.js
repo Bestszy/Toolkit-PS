@@ -70,8 +70,8 @@ function directory(x){
     }}else{ repeti = "";//if needed try to delete repeat var
     alert("set repetition")
   }
-  var sender = ('var fabric={fabric:"'+fabric+'",newName:"'+newName+'",newPath:"'+newPath+'",closeFile:"'+closeFile+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
-  //alert(sender)
+  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
+  alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
   
   //***addition features for the main function***
@@ -94,7 +94,7 @@ function directory(x){
   var closeFile = document.getElementById("closeFile").checked?true:false;
   */
 }
-//var nameToPass=""
+//***data to insert in header*** TODO: pick ones that should be in the header
 function inner(){
   csInterface.evalScript('getDocData()', function(res){
     var infoArr = res.split('§');
@@ -114,10 +114,11 @@ function inner(){
     pixelH = infoArr[1]
   })
 };
-
+//***events trigger inner function***
 csInterface.addEventListener('documentEdited',inner);
 csInterface.addEventListener('documentAfterActivate',inner);
-
+/*
+***function to copy the path of the file***
 function copyElementText(id) {
   var text = document.getElementById(id).innerText;
   var elem = document.createElement("textarea");
@@ -126,4 +127,4 @@ function copyElementText(id) {
   elem.select();
   document.execCommand("copy");
   document.body.removeChild(elem);
-}
+}*/
