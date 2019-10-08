@@ -51,46 +51,48 @@ function resizeAply(){
     document.getElementById("inputWidth").value = (parseFloat(pixelW)/(inputDPI/2.54)).toFixed(2);
   }
 var csInterface = new CSInterface();
-//***main function triggered by fabrics buttons***
+//***main function triggered by fabric buttons***
 function directory(x){
-  var newPath = "";//for new file name
-  var newName = "";//for subfolder name
   var fabric = x;//type of fabric
-
-  var closeFile = document.getElementById("closeFile").checked?true:false;//close the file
   var printingItem = document.getElementById("druk").checked?true:false;
   alert(printingItem)
- //file
-  if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
-    return alert('enter the name')
-  }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
-  newName = document.getElementById("form").value : newName = ""};
-//subfolder
+  
+  var  IWidth = document.getElementById("inputWidth").value;
+  var  IHeight = document.getElementById("inputHeight").value;
+  var  IDpi = document.getElementById("inputDPI").value;
+  if(printingItem===true){
+    repe = document.getElementsByName("repetition");
+    for(i=0; i<repe.length; i++){
+      if(repe[i].checked){
+        repeti = repe[i].value;
+        //alert(repeti)
+      }
+    }}else{ repeti = "";
+    alert("set repetition")
+  }
+  var sender = ('var fabric={fabric:"'+fabric+'",newName:"'+newName+'",newPath:"'+newPath+'",closeFile:"'+closeFile+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
+  //alert(sender)
+  csInterface.evalScript(sender + "saveDocument()",);
+  
+  //***addition features for the main function***
+  /*
+  //old sender
+  var sender = ('var fabric={fabric:"'+fabric+'",newName:"'+newName+'",newPath:"'+newPath+'",closeFile:"'+closeFile+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
+  //for new subfolder
+  var newPath = "";
   if(document.getElementById("box2").checked && document.getElementById("form2").value.length <= 0){
     return alert('enter the subfolder')
   }else{document.getElementById("box2").checked && document.getElementById("form2").value.length > 0? 
   newPath = document.getElementById("form2").value : newPath = ""};
-
-  var  IWidth = document.getElementById("inputWidth").value;
-  var  IHeight = document.getElementById("inputHeight").value;
-  var  IDpi = document.getElementById("inputDPI").value;
-if(printingItem===true){
-  repe = document.getElementsByName("repetition");
-  for(i=0; i<repe.length; i++){
-    if(repe[i].checked){
-    repeti = repe[i].value;
-    //alert(repeti)
-    }
-  }}else{ repeti = "";
-  alert("set repetition")
-}
-  //alert(repeti)
-
-//document.getElementById("toCopy").innerHTML=path + nameee;
-
-  var sender = ('var fabric={fabric:"'+fabric+'",newName:"'+newName+'",newPath:"'+newPath+'",closeFile:"'+closeFile+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
-  //alert(sender)
-  csInterface.evalScript(sender + "saveDocument()",);
+  //for new file name
+  var newName = "";
+  if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
+    return alert('enter the name')
+  }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
+  newName = document.getElementById("form").value : newName = ""};
+  //close the file
+  var closeFile = document.getElementById("closeFile").checked?true:false;
+  */
 }
 //var nameToPass=""
 function inner(){
