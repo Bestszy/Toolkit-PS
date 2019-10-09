@@ -51,15 +51,15 @@ function resizeAply(){
     document.getElementById("inputWidth").value = (parseFloat(pixelW)/(inputDPI/2.54)).toFixed(2);
   }
 var csInterface = new CSInterface();
-//***main function triggered by fabric buttons*** TODO:stop loop with alert when repe unchecked
+//***main function triggered by fabric buttons*** TODO:shorten sender if needed
 function directory(x){
-  var printingItem = document.getElementById("druk").checked?true:false;// true = druk / false = wycena
-  alert(printingItem)
   var fabric = x;//type of fabric
+  var printingItem = document.getElementById("druk").checked?true:false;
+  alert(printingItem)
+  
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
   var  IDpi = document.getElementById("inputDPI").value;
-  
   if(printingItem===true){
     repe = document.getElementsByName("repetition");
     for(i=0; i<repe.length; i++){
@@ -94,7 +94,7 @@ function directory(x){
   var closeFile = document.getElementById("closeFile").checked?true:false;
   */
 }
-//***function to retrieve data from jsx and insert in the header and resize*** TODO: pick ones that should be in the header
+//***data to insert in header*** TODO: pick ones that should be in the header
 function inner(){
   csInterface.evalScript('getDocData()', function(res){
     var infoArr = res.split('§');
@@ -108,7 +108,7 @@ function inner(){
     document.getElementById('printingProfile').innerHTML=infoArr[4];
     document.getElementById('pathnon').innerHTML=infoArr[5];
     document.getElementById("toCopy").innerHTML=infoArr[7]
-    //resize 
+
     return cmW = infoArr[8],
     pixelW = infoArr[0],
     pixelH = infoArr[1]
