@@ -54,22 +54,30 @@ var csInterface = new CSInterface();
 //***main function triggered by fabric buttons*** TODO:shorten sender if needed
 function directory(x){
   var fabric = x;//type of fabric
-  var printingItem = document.getElementById("druk").checked?true:false;
+  var printingItem = document.getElementById("druk").checked?true:false;//true DRUK false WYCENA
   alert(printingItem)
   
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
   var  IDpi = document.getElementById("inputDPI").value;
   if(printingItem===true){
-    repe = document.getElementsByName("repetition");
-    for(i=0; i<repe.length; i++){
+    var arr = Array.from(document.getElementsByName("repetition"));
+    var selectRepeta = arr.find(function(ele){return ele.checked===true});//finds which repetition is selected
+    if(selectRepeta===undefined){
+      return alert('set repetition')
+    }else{
+      var repeti=selectRepeta.value
+    }
+  }
+
+    /*for(i=0; i<repe.length; i++){
       if(repe[i].checked){
         repeti = repe[i].value;
         //alert(repeti)
       }
-    }}else{ repeti = "";//if needed try to delete repeat var
+    }}else{ repeti = "non";//if needed try to delete repeat var
     alert("set repetition")
-  }
+  }*/
   var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
   alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
