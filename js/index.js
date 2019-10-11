@@ -61,23 +61,14 @@ function directory(x){
   var  IHeight = document.getElementById("inputHeight").value;
   var  IDpi = document.getElementById("inputDPI").value;
   if(printingItem===true){
-    var arr = Array.from(document.getElementsByName("repetition"));
+    var arr = Array.from(document.getElementsByName("repetition"));//array from radio buttons
     var selectRepeta = arr.find(function(ele){return ele.checked===true});//finds which repetition is selected
     if(selectRepeta===undefined){
-      return alert('set repetition')
+      return alert('set repetition')//when nothing is selected
     }else{
       var repeti=selectRepeta.value
     }
   }
-
-    /*for(i=0; i<repe.length; i++){
-      if(repe[i].checked){
-        repeti = repe[i].value;
-        //alert(repeti)
-      }
-    }}else{ repeti = "non";//if needed try to delete repeat var
-    alert("set repetition")
-  }*/
   var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
   alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);

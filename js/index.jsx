@@ -8,12 +8,13 @@ function currentDate(){
     if (day.length == 1){ day = '0' + day}
     return year + month + day
 };
+//***function triggered by apply button, function cooperate with resizeAply function in js*** TODO:: test dpi/dpcm
 function resizeButton(){
   preferences.rulerUnits = Units.CM;
   var doc = app.activeDocument;
   doc.resizeImage(undefined, undefined, resizAply.reDpi, ResampleMethod.NONE)
 }
-
+//main function cooperate with directory f.
   function saveDocument(){
 //var docCopy = app.activeDocument.duplicate();
 //var doc = docCopy;
@@ -22,21 +23,21 @@ var orginalRulerUnits = preferences.rulerUnits; // has to be in the function
 preferences.rulerUnits = Units.CM;
 var doc = app.activeDocument;
 var name = doc.name
-/***if statement new Name input */
+//***if statement new Name input***
 /*if(fabric.newName.length>0){
 var name = fabric.newName;
 }else{
 var name = doc.name
 };*/
-var r = fabric.repetition
+var repetition = fabric.repetition//from radio buttons
 doc.flatten(); //flats whole file 
-doc.changeMode(ChangeMode.CMYK); //converts to cmyk 
-doc.colorProfileName='U.S. Web Coated (SWOP) v2';
-
+doc.changeMode(ChangeMode.CMYK); //converts to cmyk
+doc.colorProfileName='U.S. Web Coated (SWOP) v2';//printing profile 
+//true DRUK else WYCENA
 if(fabric.printingItem === "true"){
-doc.resizeImage(undefined, undefined, fabric.reDpi, ResampleMethod.NONE)
-var res = doc.resolution.toFixed(0)
-var fileNameItem = 'DRUK-' + currentDate() + '-' + name +'-'+res+'-'+r ;
+doc.resizeImage(undefined, undefined, fabric.reDpi, ResampleMethod.NONE)//resize by dpi
+var res = doc.resolution.toFixed(0)//needed to name
+var fileNameItem = 'DRUK-' + currentDate() + '-' + name +'-'+res+'-'+repetition ;//name for DRUK
 if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON"; 
 } else if(fabric.fabric == 'satyna') {var path = "Y:\\_pliki-zamowienia\\!SATYNA";
 } else if(fabric.fabric == 'woal') {var path = "Y:\\_pliki-zamowienia\\!WOAL";
@@ -52,12 +53,12 @@ if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON";
 } else if(fabric.fabric == 'pętelka 330') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 330";
 }
 alert("true" + path + fileNameItem);
-var file = new File(path + '/' + fileNameItem);
+var file = new File(path + '/' + fileNameItem); //new file 
                 opts = new TiffSaveOptions();
-                opts.imageCompression = TIFFEncoding.TIFFLZW; 
+                opts.imageCompression = TIFFEncoding.TIFFLZW;//save options
                 doc.saveAs(file, opts, true);
-} else{
-var fileName = 'WYCENA-' + currentDate() + '-' + name;
+}else{
+var fileName = 'WYCENA-' + currentDate() + '-' + name; //name for WYCENA
 
 if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON\\wycena"; 
 } else if(fabric.fabric == 'satyna') {var path = "Y:\\_pliki-zamowienia\\!SATYNA\\wycena";
@@ -77,12 +78,11 @@ var f = new Folder( path + '/'+currentDate()+ '/');//+ fabric.newPath ); ***need
 if (!f.exists) { f.create()};
 var file = new File(f + '/' + fileName);
                 opts = new TiffSaveOptions();
-                opts.imageCompression = TIFFEncoding.TIFFLZW; 
-                doc.saveAs(file, opts, true);}
-//if(!file.exists){file.create()};
+                opts.imageCompression = TIFFEncoding.TIFFLZW; //save options
+                doc.saveAs(file, opts, true);}//true save as copy false save as original PROBABLY
 //references.rulerUnits = Units.PIXELS
 alert('The file has been saved.' + 
-'\n name: '+ fileName + 
+'\n name: '+ fileName + //One file name for DRUK and WYCENA
 '\n dpi: '+doc.resolution.toFixed(0) + 
 '\n size: '+ Number(doc.width).toFixed(2)+' cm' +' x '+ Number(doc.height).toFixed(2)+' cm'+
 '\n path: '+app.activeDocument.path);
@@ -114,7 +114,7 @@ alert('The file has been saved.' +
 } else if(fabric.fabric == 'pętelka 330') {var mat= "Y:\\_pliki-zamowienia\\!PĘTELKA 330\\wycena";
 };
   } catch(e) {
-    var mat = 'first save the world';
+    var mat = 'first save the world'; //instead path for original file
   };
     try{  
       var printingProfile = app.activeDocument.colorProfileName;  
