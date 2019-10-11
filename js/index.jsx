@@ -1,5 +1,4 @@
-/*var json2 = File($.fileName).path + "/" + "json2.js";
-$.evalFile(json2); I can't include json to jsx */
+//***date function***
 function currentDate(){
     var date = new Date()
     var year = date.getFullYear().toString();
