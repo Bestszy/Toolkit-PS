@@ -23,8 +23,10 @@ var orginalRulerUnits = preferences.rulerUnits; // has to be in the function
 preferences.rulerUnits = Units.CM;
 var doc = app.activeDocument;
 var name = doc.name
+fabric.newName.length>0? name = fabric.newName: name = doc.name;
 //***if statement new Name input***
-/*if(fabric.newName.length>0){
+/*
+if(fabric.newName.length>0){
 var name = fabric.newName;
 }else{
 var name = doc.name

@@ -56,6 +56,12 @@ function directory(x){
   var fabric = x;//type of fabric
   var printingItem = document.getElementById("druk").checked?true:false;//true DRUK false WYCENA
   alert(printingItem)
+
+  var newName = "";
+  if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
+    return alert('enter the name')
+  }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
+  newName = document.getElementById("form").value : newName = ""};
   
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
@@ -69,7 +75,7 @@ function directory(x){
       var repeti=selectRepeta.value
     }
   }
-  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'"};');
+  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'",newName:"'+newName+'"};');
   alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
   
