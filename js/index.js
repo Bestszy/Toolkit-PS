@@ -93,7 +93,7 @@ function directory(x){
   var closeFile = document.getElementById("closeFile").checked?true:false;
   */
 }
-//***data to insert in header*** TODO: pick ones that should be in the header
+//***data to insert in header and in placeholder in resize, collaborate with getDocData function from jsx*** TODO: pick ones that should be in the header
 function inner(){
   csInterface.evalScript('getDocData()', function(res){
     var infoArr = res.split('§');

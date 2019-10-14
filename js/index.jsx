@@ -56,7 +56,7 @@ alert("true" + path + fileNameItem);
 var file = new File(path + '/' + fileNameItem); //new file 
                 opts = new TiffSaveOptions();
                 opts.imageCompression = TIFFEncoding.TIFFLZW;//save options
-                doc.saveAs(file, opts, true);
+                doc.saveAs(file, opts, true);//true save as copy false save as original PROBABLY
 }else{
 var fileName = 'WYCENA-' + currentDate() + '-' + name; //name for WYCENA
 
@@ -90,15 +90,16 @@ alert('The file has been saved.' +
 
 //if(fabric.closeFile === "true"){doc.close(SaveOptions.DONOTSAVECHANGES)}; ***needed for closeFile
   }
+  //***function to retrieve data from file and insert along panel, collaborate with inner function from js*** TODO: add ale directorys and exceptions
   function getDocData(){
-    preferences.rulerUnits = Units.PIXELS;
-    var width = app.activeDocument.width;
-    var height = app.activeDocument.height;
-    preferences.rulerUnits = Units.CM;
-    var widthCM = app.activeDocument.width;
-    var heightCM = app.activeDocument.height;
+    preferences.rulerUnits = Units.PIXELS;//to retrieve pixel dimension of file
+    var width = app.activeDocument.width;//to retrieve pixel dimension of file
+    var height = app.activeDocument.height;//to retrieve pixel dimension of file
+    preferences.rulerUnits = Units.CM;//dimension in cm
+    var widthCM = app.activeDocument.width;//dimension in cm
+    var heightCM = app.activeDocument.height;//dimension in cm
     var name = app.activeDocument.name;
-    try{
+    try{//fabric.fabric only available after trigger the directory function// only for WYCENA
       if (fabric.fabric == 'kreton') {var mat= "Y:\\_pliki-zamowienia\\!KRETON\\wycena"; 
 } else if(fabric.fabric == 'satyna') {var mat= "Y:\\_pliki-zamowienia\\!SATYNA\\wycena";
 } else if(fabric.fabric == 'woal') {var mat= "Y:\\_pliki-zamowienia\\!WOAL\\wycena";
@@ -116,38 +117,14 @@ alert('The file has been saved.' +
   } catch(e) {
     var mat = 'first save the world'; //instead path for original file
   };
-    try{  
+    try{//when not embedded throws error
       var printingProfile = app.activeDocument.colorProfileName;  
   } catch(e) {  
       var printingProfile = "not embedded";  
   };
-    var colorType = app.activeDocument.mode;
+    var colorType = app.activeDocument.mode;//cmyk/other
     var reso= app.activeDocument.resolution;
     var sender= (''+width+'§'+height+'§'+reso+'§'+printingProfile+'§'+colorType+'§'+name+'§'+currentDate()+'§'+mat+'§'+widthCM+'§'+heightCM+'');
-    return sender
+    return sender //sender changes at array in the inner function
     };
-  //alert('The file has been saved.' + 
-//'\n name: '+ fileName + 
-//'\n dpi: '+doc.resolution.toFixed(0) + 
-//'\n size: '+ Number(doc.width).toFixed(2)+' cm' +' x '+ Number(doc.height).toFixed(2)+' cm'+
-//'\n path: '+app.activeDocument.path);
-
-  
-            /*function saveTiff(name) {
-                if (insertData.typeOfFabric === 'satyna'){var myFolder = "C:\\Users\\AdminX\\Desktop\\Bart\\smart Saver\\DEMO\\satyna"} 
-                else if(insertData.typeOfFabric === 'kreton'){var myFolder = "C:\\Users\\AdminX\\Desktop\\Bart\\smart Saver\\DEMO\\kreton"}
-                var file = new File(myFolder + '/' + name + '.tiff');
-                var opts = new TiffSaveOptions();
-                opts.imageCompression.TIFFLZW;
-                doc.saveAs(file, opts, false);
-            }saveTiff(fileName)
-        }
-};
-preferences.rulerUnits = Units.CM
-alert('The file has been saved.\n name: '+insertData.name+
-'\n dpi: '+parseFloat((doc.resolution).toFixed(3))+
-'\n size: '+ Number(doc.width).toFixed(2)+' cm' +' x '+ Number(doc.height).toFixed(2)+' cm'+
-'\n orderID: '+insertData.order+
-'\n repetition: '+insertData.repetition[0]+
-'\n path: '+app.activeDocument.path
-);*/
+//preferences.rulerUnits = Units.CM
