@@ -55,11 +55,10 @@ var csInterface = new CSInterface();
 function directory(x){
   var fabric = x;//type of fabric
   var printingItem = document.getElementById("druk").checked?true:false;//true DRUK false WYCENA
-  alert(printingItem)
+  alert(printingItem);
 
-  var newName = "";
   if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
-    return alert('enter the name')
+    return alert('enter the name')//if new Name checked but empty input 
   }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
   newName = document.getElementById("form").value : newName = ""};
   

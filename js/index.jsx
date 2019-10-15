@@ -24,6 +24,7 @@ preferences.rulerUnits = Units.CM;
 var doc = app.activeDocument;
 var name = doc.name
 fabric.newName.length>0? name = fabric.newName: name = doc.name;
+//var name = fabric.newName.length>0? fabric.newName:doc.name;
 //***if statement new Name input***
 /*
 if(fabric.newName.length>0){
