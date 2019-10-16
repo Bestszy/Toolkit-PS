@@ -56,15 +56,21 @@ function directory(x){
   var fabric = x;//type of fabric
   var printingItem = document.getElementById("druk").checked?true:false;//true DRUK false WYCENA
   alert(printingItem);
-
+//newName
   if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
     return alert('enter the name')//if new Name checked but empty input 
   }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
-  newName = document.getElementById("form").value : newName = ""};
-  
+  newName = document.getElementById("form").value : newName = ""};//value of input if checked and exists, if not NewName = empty string.
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
   var  IDpi = document.getElementById("inputDPI").value;
+  //newPath
+  //var newPath = "";//don't need it?
+  if(document.getElementById("box2").checked && document.getElementById("form2").value.length <= 0){
+    return alert('enter the subfolder')
+  }else{document.getElementById("box2").checked && document.getElementById("form2").value.length > 0? 
+  newPath = document.getElementById("form2").value : newPath = ""};
+  //repetition
   if(printingItem===true){
     var arr = Array.from(document.getElementsByName("repetition"));//array from radio buttons
     var selectRepeta = arr.find(function(ele){return ele.checked===true});//finds which repetition is selected
@@ -74,7 +80,7 @@ function directory(x){
       var repeti=selectRepeta.value
     }
   }
-  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'",newName:"'+newName+'"};');
+  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'",newName:"'+newName+'",newPath:"'+newPath+'"};');
   alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
   
@@ -88,12 +94,6 @@ function directory(x){
     return alert('enter the subfolder')
   }else{document.getElementById("box2").checked && document.getElementById("form2").value.length > 0? 
   newPath = document.getElementById("form2").value : newPath = ""};
-  //for new file name
-  var newName = "";
-  if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
-    return alert('enter the name')
-  }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
-  newName = document.getElementById("form").value : newName = ""};
   //close the file
   var closeFile = document.getElementById("closeFile").checked?true:false;
   */
@@ -110,7 +110,7 @@ function inner(){
     document.getElementById('inputDPI').value=infoArr[2];
     document.getElementById('colorType').innerHTML=infoArr[3];
     document.getElementById('printingProfile').innerHTML=infoArr[4];
-    document.getElementById('pathnon').innerHTML=infoArr[5];
+    document.getElementById('pathnon').innerHTML=infoArr[5];// name of file in header 
     document.getElementById("toCopy").innerHTML=infoArr[7]
 
     return cmW = infoArr[8],
