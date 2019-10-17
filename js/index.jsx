@@ -27,6 +27,7 @@ var repetition = fabric.repetition//from radio buttons
 doc.flatten(); //flats whole file 
 doc.changeMode(ChangeMode.CMYK); //converts to cmyk
 doc.colorProfileName='U.S. Web Coated (SWOP) v2';//printing profile 
+//var subfolder = fabric.newPath
 //true DRUK else WYCENA
 if(fabric.printingItem === "true"){
 doc.resizeImage(undefined, undefined, fabric.reDpi, ResampleMethod.NONE)//resize by dpi
@@ -47,7 +48,10 @@ if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON";
 } else if(fabric.fabric == 'pętelka 330') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 330";
 }
 alert("true" + path + fileName);
-var file = new File(path + '/' + fileName); //new file 
+var f = new Folder( path + '/'+ fabric.newPath ); //***creates subfolder 
+if (fabric.newPath.length>0 && !f.exists) { f.create()};// if newPath exist and folder doesn't exist, creats folder 
+var subfolder = fabric.newPath.length>0? path + '/'+ fabric.newPath:path;//if for path
+var file = new File(subfolder + '/' + fileName); //new file 
                 opts = new TiffSaveOptions();
                 opts.imageCompression = TIFFEncoding.TIFFLZW;//save options
                 doc.saveAs(file, opts, true);//true save as copy false save as original PROBABLY
@@ -68,7 +72,7 @@ if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON\\wyce
 } else if(fabric.fabric == 'pętelka 250') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 250\\wycena";
 } else if(fabric.fabric == 'pętelka 330') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 330\\wycena";
 }
-var f = new Folder( path + '/'+currentDate()+ '/');//+ fabric.newPath ); ***needed for subfolder name
+var f = new Folder( path + '/'+currentDate()+ '/'+ fabric.newPath ); //***needed for subfolder name
 if (!f.exists) { f.create()};
 var file = new File(f + '/' + fileName);
                 opts = new TiffSaveOptions();
