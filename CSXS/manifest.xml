@@ -31,15 +31,15 @@
                     <Geometry>
                         <Size>
                             <Height>600</Height>
-                            <Width>290</Width>
+                            <Width>300</Width>
                         </Size>
                         <MaxSize>
                             <Height>600</Height>
-                            <Width>290</Width>
+                            <Width>300</Width>
                         </MaxSize>
                         <MinSize>
                             <Height>600</Height>
-                            <Width>290</Width>
+                            <Width>300</Width>
                         </MinSize>
                     </Geometry>
                 </UI>
