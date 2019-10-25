@@ -110,12 +110,14 @@ function inner(){
     document.getElementById('inputDPI').value=infoArr[2];
     document.getElementById('colorType').innerHTML=infoArr[3];
     document.getElementById('printingProfile').innerHTML=infoArr[4];
-    document.getElementById('pathnon').innerHTML=infoArr[5];// name of file in header 
-    document.getElementById("toCopy").innerHTML=infoArr[7]
-
+    document.getElementById('pathnon').innerHTML=infoArr[5];
+    //document.getElementById("toCopy").innerHTML=infoArr[7]// used to copy
+    //alert(infoArr[7])
+    
     return cmW = infoArr[8],
     pixelW = infoArr[0],
-    pixelH = infoArr[1]
+    pixelH = infoArr[1];
+
   })
 };
 //***events trigger inner function***
