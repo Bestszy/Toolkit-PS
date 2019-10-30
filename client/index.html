@@ -16,7 +16,9 @@
         <h4 id="pathnon"></h4>
     </div>
     <div class='button'>
-        <label><input class="select" id ="druk" type="radio" onclick="mode('druk')" name="DRUK" checked>druk</label>
+        <input class="select" id ="druk" type="radio" onclick="mode('druk')" name="DRUK" checked>
+        <label for="druk" class="druk1"></label>
+        <span>druk</span>
         <label><input class="select" id ="wycena" type="radio" onclick="mode('wycena')" name="DRUK">wycena</label>
     </div>
     <div id="conteainer2">
@@ -51,11 +53,20 @@
     <button class='btn' id="pętelka 250" onclick= "directory('pętelka 250')">pętelka</button>
     <button class='btn' id="pętelka 330" onclick= "directory('pętelka 330')">pętelka</button>
     </div>
-    <div id="conteainer5">
+    <div class="conteainer5">
+        <div class="copybtn">
+
+        </div>
+
+    </div>
+    <div class="conteainer6">
         <input class = 'check' id ="box" type='checkbox'/>
         <input class = 'form' id ='form' placeholder="enter new file name" disabled/>
         <input class = 'check' id ="box2"type='checkbox'/>
         <input class = 'form' id ='form2' placeholder="enter subfolder name" disabled/>
+    </div>
+    <div class="conteainer7">
+
     </div>
 </div>
 <!-- close the file
