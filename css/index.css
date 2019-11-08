@@ -1,5 +1,7 @@
  *{
      box-sizing: border-box;
+     margin: 0;
+     padding: 0;
  }
  body{
      background-color: white;
@@ -16,16 +18,44 @@
      border-radius: 15px;
      background-color: #E5E5E5;
  }
- input[class="select"]{
-     -webkit-appearance: none;
+ .button label{
+     position: relative;
+     cursor: pointer;
  }
- .druk1 {
-     display: block;
-     width: 64px;
-     height: 15px;
-     border: 2px solid black;
-     background-color:#E1A303
+ .button label input{
+     display: none;
  }
+ .druk{
+     position: relative;
+     display: inline-block;
+     margin: 2px;
+     margin-right: -1px;
+     text-align: center;
+     font-family: Roboto;
+     width: 85px;
+     height: 32px;
+     padding: 6px;
+     color: #969696;
+     background-color: #E5E5E5;
+     border-radius: 20px 0px 0px 20px ;
+    }
+.wycena{
+     position: relative;
+     display: inline-block;
+     margin: 2px;
+     font-family: Roboto;
+     width: 85px;
+     height: 32px;
+     margin-left: -1px;
+     padding: 6px;
+     color: #969696;
+     padding-left: 12px;
+     border-radius: 0px 20px 20px 0px ;
+       }
+.button label input:checked ~ span {
+        color: #ECECEC;
+        background-color: #E1A303;
+      }
 .shapes {
     border-radius: 15px 15px 0px 0px;
     display: grid;
@@ -35,7 +65,7 @@
     width:260px;
     font-weight: normal;
     text-align: center;
-    font-family: 'Arial', Times, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     line-height: normal;
     color:  #ECECEC;
     font-size: 10px;
@@ -46,19 +76,18 @@
 .button{
     position: absolute;
     border-radius: 20px;
-    width: 170px;
-    height: 40px;
-    color:black;
-    left: 61px;
-    top: 77px;
-    border: 2px solid #E5E5E5;
+    margin: 0 auto;
+    width: 176px;
+    height: 36px;
+    left: 62px;
+    top: 78px;
     background-color: #E5E5E5;
 }
 .conteainer5{
     width: 260px;
     height: 25px;
     padding: 2px 2px 2px 2px;
-    padding-left: 15px;
+    padding-left: 8px;
     margin: 2px auto;
     background-color: #B7B7B7;
 }
@@ -68,6 +97,50 @@
     margin: 2px auto;
     background-color: #B7B7B7;
  }
+ .conteainer6 .form{
+     height: 25px;
+     width: 211px;
+     margin: 10px 0px 0px 10px;
+     border: 1.5px solid #9D9D9D;
+     border-radius: 5px;
+     padding-left: 5px;
+     background-color: #ECECEC;
+ }
+ .conteainer6 .form:disabled {
+    background-color: #9D9D9D;
+    color: #ECECEC; /*color of placeholder*/
+
+}
+
+ input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox] + label {
+    position: relative;
+    margin:9px;
+    padding-left: 5px;
+}
+input[type=checkbox] + label:before {
+    position: absolute;
+    content: "";
+    display: block; /* koniecznie element blokowy, aby móc nadać odpowiednie wymiary */
+    width: 6px;
+    height: 6px;
+    top: 2.5px ; /* ustalamy pozycje */
+    left: 2px;
+    cursor: pointer; /* dodamy jeszcze odpowiedni kursor */
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    background-color:#B7B7B7;
+    border: 4px solid #ECECEC;
+    border-radius: 50%;
+}
+input[type=checkbox]:checked + label:before {
+    /*background-color: #ffffff;*/
+    border: 4px solid #E1A303;
+    background-color: #ECECEC;
+}
+
  .copybtn{
      width: 21px;
      height: 21px;
@@ -81,16 +154,37 @@
      margin: 2px auto;
      background-color: #B7B7B7;
  }
- #conteainer2
+ .conteainer2
  {
     width: 260px;
-    height: 180px;
-    padding: 30px 5px;
+    height: 90px;
+    padding: 30px 10px 0px 10px;
+    display: grid;
+    grid-template-columns: 50% 50%;
     margin: 2px auto;
+    margin-bottom: 0px;
     background-color: #B7B7B7;
-    margin-left: auto;
-    margin-right: auto;
  }
+ .conteainer2 label{
+     position: absolute;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 10px;
+     /*left: 10px*/
+ }
+ .conteainer2 input{
+        height: 25px;
+        width: 60px;
+        margin: 10px 0px 0px 10px;
+        border: 1.5px solid #9D9D9D;
+        border-radius: 5px;
+        padding-left: 5px;
+        background-color: #ECECEC;
+    }
+    .conteainer6 .form:disabled {
+       background-color: #B7B7B7;
+       color: #ECECEC; /*color of placeholder*/
+   
+   }
  #conteainer4
  {
     width: 260px;
@@ -105,30 +199,17 @@
  #h5{
      color:rgb(32, 32, 32)
  }
- #box{
-    margin-top:12px;
-    position:relative;
-    float: left;
- }
  #closeFile{
     margin-top:10px
  }
- #box2{
-     position:relative;
-     margin-left:-16px;
-     margin-top: 40px;
-     float: left;
-}
-#conteainer3{
+.conteainer3{
+width: 260px;
+height: 90px;
+margin: 0 auto;
+padding: 15px;
+background-color: #B7B7B7;
 display:grid;
 grid-template-columns: 50% 50%
-}
-.form{
-    width: 230px;
-    margin-top: 7px
-}
-.form2{
-    width: 100px;
 }
  
 .btn{
