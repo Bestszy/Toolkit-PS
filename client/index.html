@@ -26,21 +26,21 @@
         </label>
     </div>
     <div class="conteainer2">
-        <input class = 'mode' id ='inputWidth' onkeyup="widthF()" onkeypress="return isNumberKey(event)"/>
-        <label for="inputWidth">width</label>
-        <input class = 'mode' id ='inputHeight' onkeyup="heightF()" onkeypress="return isNumberKey(event)"/>
-        <label for="inputHeight">height</label>
-        <input class = 'mode' id ='inputDPI' onkeyup="dpiF()" onkeypress="return isNumberKey(event)"/>
-        <label for="inputDPI">dpi</label>
-        <button class = 'mode' id="reSizeButton" onclick="resizeAply()" >apply</button>
+        <div><input class = 'mode' id ='inputWidth' onkeyup="widthF()" onkeypress="return isNumberKey(event)"/>
+        <label for="inputWidth">width</label></div>
+        <div><input class = 'mode' id ='inputHeight' onkeyup="heightF()" onkeypress="return isNumberKey(event)"/>
+        <label for="inputHeight">height</label></div>
+        <div><input class = 'mode' id ='inputDPI' onkeyup="dpiF()" onkeypress="return isNumberKey(event)"/>
+        <label for="inputDPI">dpi</label></div>
+        <div><button class = 'mode' id="reSizeButton" onclick="resizeAply()" >apply</button></div>
     </div>
         <div class = "conteainer3">
-            <label><input class="mode" type="radio" value="standard" name="repetition"/>standard</label>
-            <label><input class="mode" type="radio" value="none" name="repetition"/>none</label>
-            <label><input class="mode" type="radio" value="halfdrop" name="repetition"/>halfdrop</label>
-            <label><input class="mode" type="radio" value="mirrorall" name="repetition"/>mirrorall</label>
-            <label><input class="mode" type="radio" value="brick" name="repetition"/>brick</label>
-            <label><input class="mode" type="radio" value="mirrorbasic" name="repetition"/>mirrorbasic</label>
+            <input class="mode" type="radio" value="standard" name="repetition" id="standard"/><label for="standard">standard</label>
+            <input class="mode" type="radio" value="none" name="repetition" id="none"/><label for="none">none</label>
+            <input class="mode" type="radio" value="halfdrop" name="repetition" id="halfdrop"/><label for="halfdrop">halfdrop</label>
+            <input class="mode" type="radio" value="mirrorall" name="repetition" id="mirrorall"/><label for="mirrorall">mirrorall</label>
+            <input class="mode" type="radio" value="brick" name="repetition" id="brick"/><label for="brick">brick</label>
+            <input class="mode" type="radio" value="mirrorbasic" name="repetition" id="mirrorbasic"/><label for="mirrorbasic">mirrorbasic</label>
         </div>
     <div id="conteainer4">
     <button class='btn' id="kreton" onclick= "directory('kreton')">kreton</button>
