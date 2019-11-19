@@ -107,7 +107,7 @@ function inner(){
     document.getElementById('height').innerHTML=infoArr[1];
     document.getElementById("inputHeight").value=(parseFloat(infoArr[9])).toFixed(2);
     document.getElementById('reso').innerHTML=parseFloat(infoArr[2]).toFixed(3);
-    document.getElementById('inputDPI').value=infoArr[2];
+    document.getElementById('inputDPI').value=parseFloat(infoArr[2]).toFixed(3);
     document.getElementById('colorType').innerHTML=infoArr[3];
     document.getElementById('printingProfile').innerHTML=infoArr[4];
     document.getElementById('pathnon').innerHTML=infoArr[5];

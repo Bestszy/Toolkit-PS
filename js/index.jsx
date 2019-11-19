@@ -54,7 +54,7 @@ var subfolder = fabric.newPath.length>0? path + '/'+ fabric.newPath:path;//if fo
 var file = new File(subfolder + '/' + fileName); //new file 
                 opts = new TiffSaveOptions();
                 opts.imageCompression = TIFFEncoding.TIFFLZW;//save options
-                doc.saveAs(file, opts, true);//true save as copy false save as original PROBABLY
+                doc.saveAs(file, opts, false);//true save as copy false save as original PROBABLY
 }else{
 var fileName = 'WYCENA-' + currentDate() + '-' + name; //name for WYCENA
 
@@ -77,13 +77,13 @@ if (!f.exists) { f.create()};
 var file = new File(f + '/' + fileName);
                 opts = new TiffSaveOptions();
                 opts.imageCompression = TIFFEncoding.TIFFLZW; //save options
-                doc.saveAs(file, opts, true);}//true save as copy false save as original PROBABLY
+                doc.saveAs(file, opts, false);}//true save as copy false save as original PROBABLY
 //references.rulerUnits = Units.PIXELS
 alert('The file has been saved.' + 
 '\n name: '+ fileName + //One file name for DRUK and WYCENA
-'\n dpi: '+doc.resolution.toFixed(0) + 
+'\n dpi: '+doc.resolution + 
 '\n size: '+ Number(doc.width).toFixed(2)+' cm' +' x '+ Number(doc.height).toFixed(2)+' cm'+
-'\n path: '+app.activeDocument.path);
+'\n path: '+doc.path);
 //var doc = docCopy;
 
 //if(fabric.closeFile === "true"){doc.close(SaveOptions.DONOTSAVECHANGES)}; ***needed for closeFile
