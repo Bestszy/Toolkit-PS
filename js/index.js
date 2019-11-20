@@ -112,8 +112,9 @@ function inner(){
     document.getElementById('printingProfile').innerHTML=infoArr[4];
     document.getElementById('pathnon').innerHTML=infoArr[5];
     //document.getElementById("toCopy").innerHTML=infoArr[7]// used to copy
-    //alert(infoArr[7])
-    
+    var copi = infoArr[10] + "/"+ infoArr[5];
+    alert(copi)
+    document.getElementById('copy').innerHTML=copi;
     return cmW = infoArr[8],
     pixelW = infoArr[0],
     pixelH = infoArr[1];

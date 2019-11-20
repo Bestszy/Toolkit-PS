@@ -90,10 +90,24 @@
 .conteainer5{
     width: 260px;
     height: 25px;
-    padding: 2px 2px 2px 2px;
-    padding-left: 8px;
+    padding: 2px 2px 2px 8px;
     margin: 2px auto;
     background-color: #B7B7B7;
+}
+.conteainer5 p{
+    position: absolute;
+    font-size: 9px;
+    color:#ECECEC;
+    top:473px;
+    left: 52px;
+}
+.copybtn{
+    position: relative;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    border-radius: 5px;
+    background-color: #ECECEC;
 }
 .conteainer6{
     width: 260px;
@@ -175,12 +189,6 @@ input[type=checkbox]:checked + label:before {
     background-color: #ECECEC;
 }
 
- .copybtn{
-     width: 21px;
-     height: 21px;
-     border-radius: 5px;
-     background-color: #ECECEC;
- }
  .conteainer7{
      width: 260px;
      height: 62px;

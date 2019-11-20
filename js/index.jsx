@@ -122,7 +122,8 @@ alert('The file has been saved.' +
   };
     var colorType = app.activeDocument.mode;//cmyk/other
     var reso= app.activeDocument.resolution;
-    var sender= (''+width+'§'+height+'§'+reso+'§'+printingProfile+'§'+colorType+'§'+name+'§'+currentDate()+'§'+mat+'§'+widthCM+'§'+heightCM+'');
+    var pathto = app.activeDocument.path;
+    var sender= (''+width+'§'+height+'§'+reso+'§'+printingProfile+'§'+colorType+'§'+name+'§'+currentDate()+'§'+mat+'§'+widthCM+'§'+heightCM+'§'+pathto+'');
     return sender //sender changes at array in the inner function
     };
 //preferences.rulerUnits = Units.CM
