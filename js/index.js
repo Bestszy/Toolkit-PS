@@ -64,6 +64,11 @@ function directory(x){
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
   var  IDpi = document.getElementById("inputDPI").value;
+
+  var numDurk = document.getElementById("inDruk").textContent;
+  var numIns = Number(numDurk) + 1;
+  document.getElementById("inDruk").innerHTML=numIns;
+
   //newPath
   //var newPath = "";//don't need it?
   if(document.getElementById("box2").checked && document.getElementById("form2").value.length <= 0){
@@ -102,25 +107,43 @@ function directory(x){
 function inner(){
   csInterface.evalScript('getDocData()', function(res){
     var infoArr = res.split('§');
-    document.getElementById("width").innerHTML=infoArr[0];
-    document.getElementById("inputWidth").value=(parseFloat(infoArr[8])).toFixed(2);
-    document.getElementById('height').innerHTML=infoArr[1];
-    document.getElementById("inputHeight").value=(parseFloat(infoArr[9])).toFixed(2);
-    document.getElementById('reso').innerHTML=parseFloat(infoArr[2]).toFixed(3);
+    document.getElementById("width").innerHTML=infoArr[0] +" x " + infoArr[1] + " (" + parseFloat(infoArr[2]).toFixed(3) + ")" ;
+    document.getElementById("inputWidth").value=parseFloat(infoArr[8]).toFixed(2);
+    document.getElementById("inputHeight").value=parseFloat(infoArr[9]).toFixed(2);
     document.getElementById('inputDPI').value=parseFloat(infoArr[2]).toFixed(3);
     document.getElementById('colorType').innerHTML=infoArr[3];
-    document.getElementById('printingProfile').innerHTML=infoArr[4];
-    document.getElementById('pathnon').innerHTML=infoArr[5];
+    document.getElementById('profil').innerHTML=infoArr[4];
+    document.getElementById('sizeCM').innerHTML=parseFloat(infoArr[8]).toFixed(2)+ "cm x " + parseFloat(infoArr[9]).toFixed(2)+"cm" ;
     //document.getElementById("toCopy").innerHTML=infoArr[7]// used to copy
     var copi = infoArr[10] + "/"+ infoArr[5];
-    alert(copi)
-    document.getElementById('copy').innerHTML=copi;
+    var dec=decodeURIComponent(copi);
+    var arrCopi = dec.split('/');//change  '/' into '\' in file path
+    var pathCopi = arrCopi.join('\\');//change  '/' into '\' in file path
+    if(pathCopi[0]==="\\"){
+      ree= pathCopi.replace("\y", "y:")
+    }else if(copi[0]==="~"){
+      ree=pathCopi.replace("~\\", "C:\\Users\\AdminX\\" )
+    }else{
+      alert('errr')
+    }
+    /*alert(copi)*/
+    document.getElementById('copy').innerHTML=ree;
     return cmW = infoArr[8],
     pixelW = infoArr[0],
     pixelH = infoArr[1];
 
   })
 };
+
+function copyPath(id) {
+  var text = document.getElementById(id).innerText;
+  var elem = document.createElement("textarea");
+  document.body.appendChild(elem);
+  elem.value = text;
+  elem.select();
+  document.execCommand("copy");
+  document.body.removeChild(elem);
+}
 //***events trigger inner function***
 csInterface.addEventListener('documentEdited',inner);
 csInterface.addEventListener('documentAfterActivate',inner);

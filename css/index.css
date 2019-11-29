@@ -60,12 +60,20 @@
         color: #ECECEC;
         background-color: #E1A303;
       }
+#inDruk{
+    position: absolute;
+    color: #ECECEC;
+    left: 38px;
+    top: 87px;
+    font-size: 12px;
+    font-weight: 400;
+      }
 .shapes {
     border-radius: 15px 15px 0px 0px;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 25% 25% 25% 25%; 
-    padding: 0px 10px 0px 10px;
+    grid-template-rows: 45% 45%; 
+    padding: 10px 0px 0px 0px;
     width:260px;
     font-weight: normal;
     text-align: center;
@@ -103,11 +111,16 @@
 }
 .copybtn{
     position: relative;
-    display: inline-block;
     width: 21px;
     height: 21px;
     border-radius: 5px;
     background-color: #ECECEC;
+    padding-bottom:4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #9D9D9D;
+    border: 1.5px solid #9D9D9D;
+    border-radius: 5px;
 }
 .conteainer6{
     width: 260px;

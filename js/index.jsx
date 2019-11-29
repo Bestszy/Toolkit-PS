@@ -84,6 +84,7 @@ alert('The file has been saved.' +
 '\n dpi: '+doc.resolution + 
 '\n size: '+ Number(doc.width).toFixed(2)+' cm' +' x '+ Number(doc.height).toFixed(2)+' cm'+
 '\n path: '+doc.path);
+  beep();
 //var doc = docCopy;
 
 //if(fabric.closeFile === "true"){doc.close(SaveOptions.DONOTSAVECHANGES)}; ***needed for closeFile
