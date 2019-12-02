@@ -55,7 +55,7 @@ var csInterface = new CSInterface();
 function directory(x){
   var fabric = x;//type of fabric
   var printingItem = document.getElementById("druk").checked?true:false;//true DRUK false WYCENA
-  alert(printingItem);
+  //alert(printingItem);
 //newName
   if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
     return alert('enter the name')//if new Name checked but empty input 
@@ -64,11 +64,6 @@ function directory(x){
   var  IWidth = document.getElementById("inputWidth").value;
   var  IHeight = document.getElementById("inputHeight").value;
   var  IDpi = document.getElementById("inputDPI").value;
-
-  var numDurk = document.getElementById("inDruk").textContent;
-  var numIns = Number(numDurk) + 1;
-  document.getElementById("inDruk").innerHTML=numIns;
-
   //newPath
   //var newPath = "";//don't need it?
   if(document.getElementById("box2").checked && document.getElementById("form2").value.length <= 0){
@@ -84,9 +79,16 @@ function directory(x){
     }else{
       var repeti=selectRepeta.value
     }
+  var numDurk = document.getElementById("inDruk").textContent;
+  var numIns = Number(numDurk) + 1;
+  document.getElementById("inDruk").innerHTML=numIns;
+  }else{
+  var numDurk = document.getElementById("inWycena").textContent;
+  var numIns = Number(numDurk) + 1;
+  document.getElementById("inWycena").innerHTML=numIns;
   }
   var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'",newName:"'+newName+'",newPath:"'+newPath+'"};');
-  alert(sender)
+  //alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
   
   //***addition features for the main function***
@@ -107,7 +109,8 @@ function directory(x){
 function inner(){
   csInterface.evalScript('getDocData()', function(res){
     var infoArr = res.split('§');
-    document.getElementById("width").innerHTML=infoArr[0] +" x " + infoArr[1] + " (" + parseFloat(infoArr[2]).toFixed(3) + ")" ;
+    //var forH = infoArr[0].replace("px", "")
+    document.getElementById("width").innerHTML= infoArr[0].replace("px", "")+" x " + infoArr[1].replace("px", "") + "/dpi " + parseFloat(infoArr[2]).toFixed(3) ;
     document.getElementById("inputWidth").value=parseFloat(infoArr[8]).toFixed(2);
     document.getElementById("inputHeight").value=parseFloat(infoArr[9]).toFixed(2);
     document.getElementById('inputDPI').value=parseFloat(infoArr[2]).toFixed(3);

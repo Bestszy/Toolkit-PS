@@ -47,7 +47,7 @@ if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON";
 } else if(fabric.fabric == 'pętelka 250') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 250";
 } else if(fabric.fabric == 'pętelka 330') {var path = "Y:\\_pliki-zamowienia\\!PĘTELKA 330";
 }
-alert("true" + path + fileName);
+//alert("true" + path + fileName);
 var f = new Folder( path + '/'+ fabric.newPath ); //***creates subfolder 
 if (fabric.newPath.length>0 && !f.exists) { f.create()};// if newPath exist and folder doesn't exist, creats folder 
 var subfolder = fabric.newPath.length>0? path + '/'+ fabric.newPath:path;//if for path

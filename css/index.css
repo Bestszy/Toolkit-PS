@@ -64,10 +64,18 @@
     position: absolute;
     color: #ECECEC;
     left: 38px;
-    top: 87px;
-    font-size: 12px;
-    font-weight: 400;
+    top: 82px;
+    font-size: 13px;
+    font-weight: 500;
       }
+#inWycena{
+        position: absolute;
+        color: #ECECEC;
+        left: 253px;
+        top: 82px;
+        font-size: 13px;
+        font-weight: 500;
+        }
 .shapes {
     border-radius: 15px 15px 0px 0px;
     display: grid;
@@ -75,15 +83,16 @@
     grid-template-rows: 45% 45%; 
     padding: 10px 0px 0px 0px;
     width:260px;
-    font-weight: normal;
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
-    line-height: 50%;
     color:  #ECECEC;
-    font-size: 10px;
     height:75px;
     margin:0px auto;
     background-color:#B7B7B7
+}
+.shapes h4{
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
 }
 .button{
     position: absolute;
