@@ -36,7 +36,6 @@ var fileName = 'DRUK-' + currentDate() + '-' + name +'-'+res+'-'+repetition ;//n
 if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON"; 
 } else if(fabric.fabric == 'satyna') {var path = "Y:\\_pliki-zamowienia\\!SATYNA";
 } else if(fabric.fabric == 'woal') {var path = "Y:\\_pliki-zamowienia\\!WOAL";
-} else if(fabric.fabric == 'płótno') {var path = "Y:\\_pliki-zamowienia\\!PŁÓTNO-LEN";
 } else if(fabric.fabric == 'sofia') {var path = "Y:\\_pliki-zamowienia\\!SOFIA";
 } else if(fabric.fabric == 'panama') {var path = "Y:\\_pliki-zamowienia\\!PANAMA";
 } else if(fabric.fabric == 'gabardyna') {var path = "Y:\\_pliki-zamowienia\\!GABARDYNA";
@@ -61,7 +60,6 @@ var fileName = 'WYCENA-' + currentDate() + '-' + name; //name for WYCENA
 if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON\\wycena"; 
 } else if(fabric.fabric == 'satyna') {var path = "Y:\\_pliki-zamowienia\\!SATYNA\\wycena";
 } else if(fabric.fabric == 'woal') {var path = "Y:\\_pliki-zamowienia\\!WOAL\\wycena";
-} else if(fabric.fabric == 'płótno') {var path = "Y:\\_pliki-zamowienia\\!PŁÓTNO-LEN\\wycena";
 } else if(fabric.fabric == 'sofia') {var path = "Y:\\_pliki-zamowienia\\!SOFIA\\wycena";
 } else if(fabric.fabric == 'panama') {var path = "Y:\\_pliki-zamowienia\\!PANAMA\\wycena";
 } else if(fabric.fabric == 'gabardyna') {var path = "Y:\\_pliki-zamowienia\\!GABARDYNA\\wycena";
@@ -102,7 +100,6 @@ alert('The file has been saved.' +
       if (fabric.fabric == 'kreton') {var mat= "Y:\\_pliki-zamowienia\\!KRETON\\wycena"; 
 } else if(fabric.fabric == 'satyna') {var mat= "Y:\\_pliki-zamowienia\\!SATYNA\\wycena";
 } else if(fabric.fabric == 'woal') {var mat= "Y:\\_pliki-zamowienia\\!WOAL\\wycena";
-} else if(fabric.fabric == 'płótno') {var mat= "Y:\\_pliki-zamowienia\\!PŁÓTNO-LEN\\wycena";
 } else if(fabric.fabric == 'sofia') {var mat= "Y:\\_pliki-zamowienia\\!SOFIA\\wycena";
 } else if(fabric.fabric == 'panama') {var mat= "Y:\\_pliki-zamowienia\\!PANAMA\\wycena";
 } else if(fabric.fabric == 'gabardyna') {var mat= "Y:\\_pliki-zamowienia\\!GABARDYNA\\wycena";
