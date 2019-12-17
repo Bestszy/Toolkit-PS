@@ -18,6 +18,10 @@ function resizeButton(){
   function saveDocument(){
 //var docCopy = app.activeDocument.duplicate();
 //var doc = docCopy;
+i=0;
+do{
+var doc = documents[i];
+app.activeDocument=doc;
 var orginalRulerUnits = preferences.rulerUnits; // has to be in the function
 //preferences.rulerUnits = Units.PIXELS;
 preferences.rulerUnits = Units.CM;
@@ -30,7 +34,8 @@ doc.colorProfileName='U.S. Web Coated (SWOP) v2';//printing profile
 //var subfolder = fabric.newPath
 //true DRUK else WYCENA
 if(fabric.printingItem === "true"){
-doc.resizeImage(undefined, undefined, fabric.reDpi, ResampleMethod.NONE)//resize by dpi
+if(i == 0){
+doc.resizeImage(undefined, undefined, fabric.reDpi, ResampleMethod.NONE)}//resize by dpi
 var res = doc.resolution.toFixed(0)//needed to name
 var fileName = 'DRUK-' + currentDate() + '-' + name +'-'+res+'-'+repetition ;//name for DRUK
 if (fabric.fabric == 'kreton') {var path = "Y:\\_pliki-zamowienia\\!KRETON"; 
@@ -83,6 +88,8 @@ alert('The file has been saved.' +
 '\n size: '+ Number(doc.width).toFixed(2)+' cm' +' x '+ Number(doc.height).toFixed(2)+' cm'+
 '\n path: '+doc.path);
   beep();
+  i++;
+}while(fabric.saveAll==="true" && i<app.documents.length)
 //var doc = docCopy;
 
 //if(fabric.closeFile === "true"){doc.close(SaveOptions.DONOTSAVECHANGES)}; ***needed for closeFile

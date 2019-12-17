@@ -56,7 +56,8 @@ function directory(x){
   var fabric = x;//type of fabric
   var printingItem = document.getElementById("druk").checked?true:false;//true DRUK false WYCENA
   //alert(printingItem);
-//newName
+  var saveAll = document.getElementById("saveAll").checked?true:false;
+  //newName
   if(document.getElementById("box").checked && document.getElementById("form").value.length <= 0){
     return alert('enter the name')//if new Name checked but empty input 
   }else{document.getElementById("box").checked && document.getElementById("form").value.length > 0? 
@@ -87,7 +88,7 @@ function directory(x){
   var numIns = Number(numDurk) + 1;
   document.getElementById("inWycena").innerHTML=numIns;
   }
-  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'",newName:"'+newName+'",newPath:"'+newPath+'"};');
+  var sender = ('var fabric={fabric:"'+fabric+'",printingItem:"'+printingItem+'",reDpi:"'+IDpi+'",repetition:"'+repeti+'",newName:"'+newName+'",newPath:"'+newPath+'",saveAll:"'+saveAll+'"};');
   //alert(sender)
   csInterface.evalScript(sender + "saveDocument()",);
   
