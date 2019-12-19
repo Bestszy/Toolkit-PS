@@ -341,7 +341,7 @@ input[class = 'check2'] {
 input[class = 'check2'] + label {
     position: relative;
     top: 30px;
-    left: -50px;
+    left: -10px;
     font-size: 14px;
     font-weight: 400;
 }
@@ -352,7 +352,7 @@ input[class = 'check2'] + label:before {
     width: 5px;
     height: 5px;
     top: 3px ; /* ustalamy pozycje */
-    left: 50px;
+    left: -4px;
     cursor: pointer; /* dodamy jeszcze odpowiedni kursor */
     transition: all .4s ease;
     -webkit-transition: all .4s ease;

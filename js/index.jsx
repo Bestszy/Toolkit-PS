@@ -18,10 +18,14 @@ function resizeButton(){
   function saveDocument(){
 //var docCopy = app.activeDocument.duplicate();
 //var doc = docCopy;
-i=0;
+i=0
 do{
-var doc = documents[i];
-app.activeDocument=doc;
+if(fabric.saveAll==="true"){
+  var doc = documents[i];
+  app.activeDocument=doc;
+}else{
+  var doc = app.activeDocument;
+};
 var orginalRulerUnits = preferences.rulerUnits; // has to be in the function
 //preferences.rulerUnits = Units.PIXELS;
 preferences.rulerUnits = Units.CM;
